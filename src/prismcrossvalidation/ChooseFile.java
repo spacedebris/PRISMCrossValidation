@@ -6,6 +6,10 @@
 
 package prismcrossvalidation;
 
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author si
@@ -57,7 +61,18 @@ public class ChooseFile extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser1ActionPerformed
-        // TODO add your handling code here:
+        JFileChooser chooser = (JFileChooser)evt.getSource();
+        String command = evt.getActionCommand();
+        if(command.equals(JFileChooser.APPROVE_SELECTION)){
+            File filePath = chooser.getSelectedFile();
+            JOptionPane.showMessageDialog(this, "Path:"+ filePath.getAbsolutePath() + 
+                    "\n File: " + filePath.getName());
+            
+            this.dispose();
+        }else if (command.equals(JFileChooser.CANCEL_SELECTION)){
+            JOptionPane.showMessageDialog(this, "You don't choose anything...");
+            this.dispose();
+        }
     }//GEN-LAST:event_jFileChooser1ActionPerformed
 
     /**
@@ -96,6 +111,6 @@ public class ChooseFile extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFileChooser jFileChooser1;
+    public javax.swing.JFileChooser jFileChooser1;
     // End of variables declaration//GEN-END:variables
 }
