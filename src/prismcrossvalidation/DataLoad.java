@@ -23,5 +23,4 @@ public class DataLoad {
         loader.setFile(new File(fileName)); //Ustawienie pliku do odczytania
         return loader.getDataSet(); //Odczytanie danych z pliku
     }
-    
 }

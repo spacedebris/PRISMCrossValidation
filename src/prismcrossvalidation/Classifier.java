@@ -25,11 +25,7 @@ public class Classifier {
     {
         
         String source = MainWindow.pathChooseField.getText();
-        //String source2 = "C:/Users/si/Documents/serce.arff";
-        System.out.println("source" +source);
-        //System.out.println("dsadsadasdsa" +source.replaceAll("\\", "/"));
-        Instances data = DataLoad.loadData("./src/data/serce.arff");
-        //Instances data = DataLoad.loadData(source2);
+        Instances data = DataLoad.loadData(source.replace("\\", "/"));
         
         data.setClassIndex(data.numAttributes() - 1);
 
