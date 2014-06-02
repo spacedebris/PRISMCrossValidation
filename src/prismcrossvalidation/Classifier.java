@@ -9,12 +9,10 @@ package prismcrossvalidation;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Random;
-import weka.associations.Apriori;
 import weka.classifiers.Evaluation;
 import weka.classifiers.meta.FilteredClassifier;
 import weka.classifiers.rules.Prism;
 import weka.core.Instances;
-import weka.core.Utils;
 import weka.filters.supervised.attribute.Discretize;
 
 /**
@@ -25,7 +23,14 @@ public class Classifier {
     static public void crossValidationPRISM_DISCRET()
     throws FileNotFoundException, IOException, Exception
     {
+        
+        String source = MainWindow.pathChooseField.getText();
+        //String source2 = "C:/Users/si/Documents/serce.arff";
+        System.out.println("source" +source);
+        //System.out.println("dsadsadasdsa" +source.replaceAll("\\", "/"));
         Instances data = DataLoad.loadData("./src/data/serce.arff");
+        //Instances data = DataLoad.loadData(source2);
+        
         data.setClassIndex(data.numAttributes() - 1);
 
         Discretize filter = new Discretize();

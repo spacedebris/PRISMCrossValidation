@@ -6,7 +6,6 @@
 
 package prismcrossvalidation;
 
-import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,8 +18,7 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
-    
-    
+ 
     public MainWindow() {
         initComponents();
     }
@@ -70,6 +68,11 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         PrevievButton1.setText("Previev");
+        PrevievButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PrevievButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -224,11 +227,13 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void chooseButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseButton1ActionPerformed
         ChooseFile chooser = new ChooseFile();
-        chooser.setVisible(true);
-        //pathField.setText(chooser.returnPath);
-        
+        chooser.setVisible(true);       
         
     }//GEN-LAST:event_chooseButton1ActionPerformed
+
+    private void PrevievButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrevievButton1ActionPerformed
+        
+    }//GEN-LAST:event_PrevievButton1ActionPerformed
 
     /**
      * @param args the command line arguments

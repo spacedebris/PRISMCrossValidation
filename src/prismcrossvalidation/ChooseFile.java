@@ -63,9 +63,7 @@ public class ChooseFile extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    //public String returnPath="";
-        
+      
     
   
     private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser1ActionPerformed
@@ -76,7 +74,7 @@ public class ChooseFile extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Path:"+ filePath.getAbsolutePath() + 
                     "\n File: " + filePath.getName());
             String globalPath = filePath.getAbsolutePath();
-            System.out.println("choosed path" +globalPath);
+            System.out.println("choosed path: " +globalPath);
             MainWindow.pathChooseField.setText(globalPath);
             this.dispose();
         }else if (command.equals(JFileChooser.CANCEL_SELECTION)){
