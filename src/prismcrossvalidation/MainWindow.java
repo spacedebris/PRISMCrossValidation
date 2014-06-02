@@ -19,6 +19,8 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
+    
+    
     public MainWindow() {
         initComponents();
     }
@@ -40,7 +42,7 @@ public class MainWindow extends javax.swing.JFrame {
         pathChooseField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        prismButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
@@ -121,10 +123,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         classifierPane.addTab("Select Data", wybierzPlikPanel);
 
-        jButton1.setText("Test cross-validation for classifier PRISM with discretization");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        prismButton.setText("Test cross-validation for classifier PRISM with discretization");
+        prismButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                prismButtonActionPerformed(evt);
             }
         });
 
@@ -134,14 +136,14 @@ public class MainWindow extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(55, 55, 55)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(prismButton, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(139, 139, 139)
-                .addComponent(jButton1)
+                .addComponent(prismButton)
                 .addContainerGap(154, Short.MAX_VALUE))
         );
 
@@ -212,17 +214,20 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_chooseButton1MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void prismButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prismButtonActionPerformed
         try {
             Classifier.crossValidationPRISM_DISCRET();
         } catch (Exception ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_prismButtonActionPerformed
 
     private void chooseButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseButton1ActionPerformed
         ChooseFile chooser = new ChooseFile();
         chooser.setVisible(true);
+        //pathField.setText(chooser.returnPath);
+        
+        
     }//GEN-LAST:event_chooseButton1ActionPerformed
 
     /**
@@ -264,7 +269,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JToggleButton PrevievButton1;
     private javax.swing.JButton chooseButton1;
     private javax.swing.JTabbedPane classifierPane;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
@@ -275,7 +279,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JMenuItem mExit;
-    public javax.swing.JTextField pathChooseField;
+    public static javax.swing.JTextField pathChooseField;
+    private javax.swing.JButton prismButton;
     private javax.swing.JPanel wybierzPlikPanel;
     // End of variables declaration//GEN-END:variables
 }

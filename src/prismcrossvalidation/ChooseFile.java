@@ -16,9 +16,8 @@ import javax.swing.JOptionPane;
  */
 public class ChooseFile extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ChooseFile
-     */
+    
+    
     public ChooseFile() {
         initComponents();
     }
@@ -36,6 +35,11 @@ public class ChooseFile extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jFileChooser1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jFileChooser1MouseClicked(evt);
+            }
+        });
         jFileChooser1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFileChooser1ActionPerformed(evt);
@@ -60,6 +64,10 @@ public class ChooseFile extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //public String returnPath="";
+        
+    
+  
     private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser1ActionPerformed
         JFileChooser chooser = (JFileChooser)evt.getSource();
         String command = evt.getActionCommand();
@@ -68,13 +76,18 @@ public class ChooseFile extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Path:"+ filePath.getAbsolutePath() + 
                     "\n File: " + filePath.getName());
             String globalPath = filePath.getAbsolutePath();
-            //primaryWindow.pathChooseField.setText("");
+            System.out.println("choosed path" +globalPath);
+            MainWindow.pathChooseField.setText(globalPath);
             this.dispose();
         }else if (command.equals(JFileChooser.CANCEL_SELECTION)){
             JOptionPane.showMessageDialog(this, "You don't choose anything...");
             this.dispose();
         }
     }//GEN-LAST:event_jFileChooser1ActionPerformed
+
+    private void jFileChooser1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFileChooser1MouseClicked
+       
+    }//GEN-LAST:event_jFileChooser1MouseClicked
 
     /**
      * @param args the command line arguments
