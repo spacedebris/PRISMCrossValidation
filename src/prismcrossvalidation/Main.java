@@ -16,7 +16,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        MainWindow primary = new MainWindow();
-        primary.setVisible(true);
+        MainWindow primaryWindow = new MainWindow();
+        primaryWindow.setVisible(true);
     }
 }

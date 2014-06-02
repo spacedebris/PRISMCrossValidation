@@ -154,7 +154,7 @@
                               <Component id="chooseButton1" pref="148" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="pathField1" min="-2" pref="313" max="-2" attributes="0"/>
+                          <Component id="pathChooseField" min="-2" pref="313" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -165,7 +165,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="chooseButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="pathField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="pathChooseField" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="28" max="32767" attributes="0"/>
                           <Component id="PrevievButton1" min="-2" max="-2" attributes="0"/>
@@ -189,7 +189,7 @@
                     <Property name="text" type="java.lang.String" value="Previev"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="pathField1">
+                <Component class="javax.swing.JTextField" name="pathChooseField">
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
