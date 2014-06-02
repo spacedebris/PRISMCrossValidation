@@ -12,11 +12,11 @@ import weka.core.Instances;
 import weka.core.converters.ArffLoader;
 
 /**
- *
+ * klasa odczytujaca format ARFF
  * @author si
  */
 public class DataLoad {
-     public static Instances loadData(String fileName)
+    public static Instances loadData(String fileName)
     throws IOException
     {
         ArffLoader loader = new ArffLoader(); //Utworzenie obiektu czytajacego dane z formatu ARFF

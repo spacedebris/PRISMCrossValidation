@@ -7,6 +7,8 @@
 package prismcrossvalidation;
 
 import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -36,6 +38,7 @@ public class MainWindow extends javax.swing.JFrame {
         chooseButton1 = new javax.swing.JButton();
         PrevievButton1 = new javax.swing.JToggleButton();
         pathField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -56,6 +59,11 @@ public class MainWindow extends javax.swing.JFrame {
         chooseButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 chooseButton1MouseClicked(evt);
+            }
+        });
+        chooseButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chooseButton1ActionPerformed(evt);
             }
         });
 
@@ -86,6 +94,8 @@ public class MainWindow extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel2.setText("Remember: Algorithm works only on the basis of the nominal value of the attrubutes");
+
         javax.swing.GroupLayout wybierzPlikPanelLayout = new javax.swing.GroupLayout(wybierzPlikPanel);
         wybierzPlikPanel.setLayout(wybierzPlikPanelLayout);
         wybierzPlikPanelLayout.setHorizontalGroup(
@@ -94,16 +104,22 @@ public class MainWindow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(wybierzPlikPanelLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         wybierzPlikPanelLayout.setVerticalGroup(
             wybierzPlikPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(wybierzPlikPanelLayout.createSequentialGroup()
                 .addGap(99, 99, 99)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(jLabel2)
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
-        classifierPane.addTab("Preprocessing", wybierzPlikPanel);
+        classifierPane.addTab("Select Data", wybierzPlikPanel);
 
         jButton1.setText("Test cross-validation for classifier PRISM with discretization");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -149,7 +165,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Help");
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -197,8 +213,17 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_chooseButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Classifier klasyfikator = new Classifier();
+        try {
+            Classifier.crossValidationPRISM_DISCRET();
+        } catch (Exception ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void chooseButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseButton1ActionPerformed
+        ChooseFile chooser = new ChooseFile();
+        chooser.setVisible(true);
+    }//GEN-LAST:event_chooseButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,6 +266,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTabbedPane classifierPane;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

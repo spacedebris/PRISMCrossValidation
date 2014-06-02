@@ -18,7 +18,7 @@ import weka.core.Utils;
 import weka.filters.supervised.attribute.Discretize;
 
 /**
- *
+ * Klasa implementujaca klasyfikator PRISM
  * @author si
  */
 public class Classifier {
@@ -39,27 +39,4 @@ public class Classifier {
 	eval.crossValidateModel(fClassifier, data, 10, new Random(1)); //CV dla 10 foldow
         System.out.println(eval.toSummaryString("Wyniki:", false));
     }
-    
-    //Generowanie regul asocjacyjnych
-    public static void regulyAsocjacyjne()
-    throws Exception
-    {
-        Instances data = DataLoad.loadData("./src/data/osmolski.arff");
-        data.setClassIndex(data.numAttributes() - 1);
-        
-        //-N ->Liczba regul do policzenia (standardowo: 10)
-        //-C ->Minmalna ufnosc reguly (standardowo: 0.9).
-        
-        String[] options = Utils.splitOptions("-N 20 -C 0.6");
-        Apriori apriori = new Apriori();
-        apriori.setOptions(options);
-        apriori.buildAssociations(data); //Generowanie regul asocjacyjnych
-
-        System.out.println("Liczba regul=" + apriori.getNumRules());
-
-        System.out.println(apriori.toString()); //Wypisanie informacji o regulach
-    }
-    
-    
-    
 }
