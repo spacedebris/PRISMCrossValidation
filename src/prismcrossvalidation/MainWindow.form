@@ -21,7 +21,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Help"/>
+            <Property name="text" type="java.lang.String" value="About"/>
           </Properties>
         </Menu>
       </SubComponents>
@@ -186,7 +186,7 @@
                 </Component>
                 <Component class="javax.swing.JToggleButton" name="PrevievButton1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Previev"/>
+                    <Property name="text" type="java.lang.String" value="Preview"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PrevievButton1ActionPerformed"/>

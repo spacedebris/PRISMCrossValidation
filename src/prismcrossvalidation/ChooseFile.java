@@ -79,6 +79,7 @@ public class ChooseFile extends javax.swing.JFrame {
             this.dispose();
         }else if (command.equals(JFileChooser.CANCEL_SELECTION)){
             JOptionPane.showMessageDialog(this, "You don't choose anything...");
+            MainWindow.pathChooseField.setText("You should look for arff");
             this.dispose();
         }
     }//GEN-LAST:event_jFileChooser1ActionPerformed
