@@ -6,12 +6,42 @@
 
 package prismcrossvalidation;
 
+import java.io.IOException;
+import java.util.Arrays;
+import weka.core.Instances;
+
 /**
  *
  * @author si
  */
 public class Preview extends javax.swing.JFrame {
 
+    
+    public static void writeJTable() throws IOException{
+        
+    }
+    
+    /**
+     * method to write arff data into s.o.p.
+     * @throws IOException 
+     */
+    
+    public static void showData()throws IOException{
+        
+        String source = MainWindow.pathChooseField.getText();
+        Instances data = DataLoad.loadData(source.replace("\\", "/"));
+        data.setClassIndex(data.numAttributes() - 1);
+        
+        for (int i = 0; i < data.numAttributes(); i++){
+            // Print the current attribute.
+            System.out.print(data.attribute(i).name() + ": ");
+
+            // Print the values associated with the current attribute.
+            double[] values = data.attributeToDoubleArray(i);
+            System.out.println(Arrays.toString(values));
+            //Preview.PreviewTextArea.append("dasdasdasdasd");
+        }
+    }
     /**
      * Creates new form Preview
      */
@@ -29,13 +59,13 @@ public class Preview extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        previewTextArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        previewTextArea.setColumns(20);
+        previewTextArea.setRows(5);
+        jScrollPane1.setViewportView(previewTextArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,12 +112,13 @@ public class Preview extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Preview().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    public static javax.swing.JTextArea previewTextArea;
     // End of variables declaration//GEN-END:variables
 }

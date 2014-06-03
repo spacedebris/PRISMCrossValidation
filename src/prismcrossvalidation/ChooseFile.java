@@ -71,7 +71,7 @@ public class ChooseFile extends javax.swing.JFrame {
         String command = evt.getActionCommand();
         if(command.equals(JFileChooser.APPROVE_SELECTION)){
             File filePath = chooser.getSelectedFile();
-            JOptionPane.showMessageDialog(this, "Path:"+ filePath.getAbsolutePath() + 
+            JOptionPane.showMessageDialog(this, "Path: "+ filePath.getAbsolutePath() + 
                     "\n File: " + filePath.getName());
             String globalPath = filePath.getAbsolutePath();
             System.out.println("choosed path: " +globalPath);
@@ -79,7 +79,7 @@ public class ChooseFile extends javax.swing.JFrame {
             this.dispose();
         }else if (command.equals(JFileChooser.CANCEL_SELECTION)){
             JOptionPane.showMessageDialog(this, "You don't choose anything...");
-            MainWindow.pathChooseField.setText("You should look for arff");
+            MainWindow.pathChooseField.setText("Nothing to select");
             this.dispose();
         }
     }//GEN-LAST:event_jFileChooser1ActionPerformed
