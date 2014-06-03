@@ -35,11 +35,11 @@ public class Preview extends javax.swing.JFrame {
         for (int i = 0; i < data.numAttributes(); i++){
             // Print the current attribute.
             System.out.print(data.attribute(i).name() + ": ");
-
+            previewTextArea.append("\n" +data.attribute(i).name() + ": ");
             // Print the values associated with the current attribute.
             double[] values = data.attributeToDoubleArray(i);
             System.out.println(Arrays.toString(values));
-            //Preview.PreviewTextArea.append("dasdasdasdasd");
+            previewTextArea.append(Arrays.toString(values));
         }
     }
     /**
@@ -61,7 +61,7 @@ public class Preview extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         previewTextArea = new javax.swing.JTextArea();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         previewTextArea.setColumns(20);
         previewTextArea.setRows(5);
@@ -75,7 +75,9 @@ public class Preview extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 28, Short.MAX_VALUE))
         );
 
         pack();
