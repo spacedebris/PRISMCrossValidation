@@ -75,6 +75,7 @@ public class ChooseFile extends javax.swing.JFrame {
                     "\n File: " + filePath.getName());
             String globalPath = filePath.getAbsolutePath();
             System.out.println("choosed path: " +globalPath);
+            MainWindow.logArea.append("choosed path: " +globalPath+"\n");
             MainWindow.pathChooseField.setText(globalPath);
             this.dispose();
         }else if (command.equals(JFileChooser.CANCEL_SELECTION)){

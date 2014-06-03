@@ -38,6 +38,7 @@ public class Classifier {
 
         Evaluation eval = new MyEvaluation(data);
 	eval.crossValidateModel(fClassifier, data, 10, new Random(1)); //CV dla 10 foldow
+        
         System.out.println(eval.toSummaryString("Wyniki:", false));
         MainWindow.logArea.append(eval.toSummaryString("Wyniki:", false));
     }

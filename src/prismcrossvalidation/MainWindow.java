@@ -252,19 +252,21 @@ public class MainWindow extends javax.swing.JFrame {
             Preview.showData();
         } catch (IOException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            logArea.append(getStringFromStackTrace.exceptionToString(ex));
         }
     }//GEN-LAST:event_PrevievButton1ActionPerformed
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
         About description = new About();
         description.setVisible(true);
-        System.out.println("about");
+        System.out.println("about...");
+        logArea.append("about...");
     }//GEN-LAST:event_jMenu2ActionPerformed
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        //About description = new About();
-        //description.setVisible(true);
-        //System.out.println("about");
+        About description = new About();
+        description.setVisible(true);
+        System.out.println("about");
     }//GEN-LAST:event_jMenu2MouseClicked
 
     /**

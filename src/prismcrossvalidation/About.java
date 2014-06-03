@@ -29,13 +29,18 @@ public class About extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        aboutLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
-        jLabel1.setText("<html>    Prism algorithm builds a rule using strategy similar to the building of a  branch of a tree diagram. <br> - In order to find rules describing examples of this class (positive examples) in each step adds one condition that maximizes at a gicen stage as the quotient of the covered examples of this cllass for all examples. <br>-Adding another condition to the rule is analogous operation as adding a new node to a tree branch. <br>-Algorithm works only on the basis of nominal attributes.<br>-It's characterized by excessive adjustment and the reasons works in practice, but it can be treated as a good point basis for more advanced solutions.<br><br>Author: Marek Kozłowski<br>Kontakt: <a href=\"mailto:kozlowskimarekamil@gmail.com\"</a></html>");
+        aboutLabel.setText("<html>    Prism algorithm builds a rule using strategy similar to the building of a  branch of a tree diagram. <br> - In order to find rules describing examples of this class (positive examples) in each step adds one condition that maximizes at a gicen stage as the quotient of the covered examples of this cllass for all examples. <br>-Adding another condition to the rule is analogous operation as adding a new node to a tree branch. <br>-Algorithm works only on the basis of nominal attributes.<br>-It's characterized by excessive adjustment and the reasons works in practice, but it can be treated as a good point basis for more advanced solutions.<br><br>Author: Marek Kozłowski<br>Kontakt: <a href=\"mailto:kozlowskimarekamil@gmail.com\"</a></html>");
+        aboutLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aboutLabelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -43,14 +48,14 @@ public class About extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addComponent(aboutLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(aboutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -73,6 +78,10 @@ public class About extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void aboutLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutLabelMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_aboutLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -110,7 +119,7 @@ public class About extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel aboutLabel;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

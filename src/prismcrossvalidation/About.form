@@ -55,7 +55,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel1" pref="348" max="32767" attributes="0"/>
+                  <Component id="aboutLabel" pref="348" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -64,17 +64,20 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="265" max="-2" attributes="0"/>
+                  <Component id="aboutLabel" min="-2" pref="265" max="-2" attributes="0"/>
                   <EmptySpace pref="22" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="aboutLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;    Prism algorithm builds a rule using strategy similar to the building of a  branch of a tree diagram. &lt;br&gt; - In order to find rules describing examples of this class (positive examples) in each step adds one condition that maximizes at a gicen stage as the quotient of the covered examples of this cllass for all examples. &lt;br&gt;-Adding another condition to the rule is analogous operation as adding a new node to a tree branch. &lt;br&gt;-Algorithm works only on the basis of nominal attributes.&lt;br&gt;-It&apos;s characterized by excessive adjustment and the reasons works in practice, but it can be treated as a good point basis for more advanced solutions.&lt;br&gt;&lt;br&gt;Author: Marek Koz&#x142;owski&lt;br&gt;Kontakt: &lt;a href=&quot;mailto:kozlowskimarekamil@gmail.com&quot;&lt;/a&gt;&lt;/html&gt;"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="aboutLabelMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
