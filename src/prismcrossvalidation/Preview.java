@@ -31,15 +31,16 @@ public class Preview extends javax.swing.JFrame {
         String source = MainWindow.pathChooseField.getText();
         Instances data = DataLoad.loadData(source.replace("\\", "/"));
         data.setClassIndex(data.numAttributes() - 1);
-        
+        String field = "";
         for (int i = 0; i < data.numAttributes(); i++){
             // Print the current attribute.
             System.out.print(data.attribute(i).name() + ": ");
             previewTextArea.append("\n" +data.attribute(i).name() + ": ");
             // Print the values associated with the current attribute.
             double[] values = data.attributeToDoubleArray(i);
+       
             System.out.println(Arrays.toString(values));
-            previewTextArea.append(Arrays.toString(values));
+            previewTextArea.append(Arrays.toString(values));   
         }
     }
     /**

@@ -9,6 +9,7 @@ package prismcrossvalidation;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static prismcrossvalidation.Preview.previewTextArea;
 
 /**
  *
@@ -43,7 +44,7 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         prismButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        logArea = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -153,9 +154,9 @@ public class MainWindow extends javax.swing.JFrame {
 
         classifierPane.addTab("Classifier", jPanel3);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        logArea.setColumns(20);
+        logArea.setRows(5);
+        jScrollPane1.setViewportView(logArea);
 
         jLabel1.setText("log");
 
@@ -233,6 +234,8 @@ public class MainWindow extends javax.swing.JFrame {
             Classifier.crossValidationPRISM_DISCRET();
         } catch (Exception ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
+            logArea.append(getStringFromStackTrace.exceptionToString(ex));
         }
     }//GEN-LAST:event_prismButtonActionPerformed
 
@@ -259,9 +262,9 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu2ActionPerformed
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        About description = new About();
-        description.setVisible(true);
-        System.out.println("about");
+        //About description = new About();
+        //description.setVisible(true);
+        //System.out.println("about");
     }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
@@ -311,7 +314,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    public static javax.swing.JTextArea logArea;
     private javax.swing.JMenuItem mExit;
     public static javax.swing.JTextField pathChooseField;
     private javax.swing.JButton prismButton;
