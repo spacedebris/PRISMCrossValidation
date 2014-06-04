@@ -20,10 +20,10 @@ import weka.filters.supervised.attribute.Discretize;
  * @author si
  */
 public class Classifier {
-    static public void crossValidationPRISM_DISCRET()
+    static public String crossValidationPRISM_DISCRET()
     throws FileNotFoundException, IOException, Exception
     {
-        
+        String prismResult = "";
         String source = MainWindow.pathChooseField.getText();
         Instances data = DataLoad.loadData(source.replace("\\", "/"));
         
@@ -41,5 +41,7 @@ public class Classifier {
         
         System.out.println(eval.toSummaryString("Wyniki:", false));
         MainWindow.logArea.append(eval.toSummaryString("Wyniki:", false));
+        
+        return prismResult = eval.toSummaryString("Wyniki:", false);
     }
 }
