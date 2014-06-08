@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import javax.swing.JOptionPane;
+import static prismcrossvalidation.MainWindow.logArea;
 
 /**
  *
@@ -25,11 +26,13 @@ public class WriteToFile {
             JOptionPane.showMessageDialog(null,"Result saved.");
         }catch(IOException e){
             e.printStackTrace();
+            MainWindow.logArea.append(StringFromStackTrace.exceptionToString(e));
         }finally{
             try{
                 os.close();
             }catch(IOException e){
                 e.printStackTrace();
+                MainWindow.logArea.append(StringFromStackTrace.exceptionToString(e));
             }
         } 
     }

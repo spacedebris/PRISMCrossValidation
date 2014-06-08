@@ -14,7 +14,7 @@ import java.io.StringWriter;
  *
  * @author si
  */
-public class getStringFromStackTrace {
+public class StringFromStackTrace {
     public static String exceptionToString(Throwable ex){
         if (ex ==null){
             return "";
@@ -33,5 +33,4 @@ public class getStringFromStackTrace {
             }
         }
     }
-    
 }

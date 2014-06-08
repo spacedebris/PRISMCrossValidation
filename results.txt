@@ -1,10 +1,10 @@
 Wyniki:
-Correctly Classified Instances         185               68.5185 %
-Incorrectly Classified Instances        80               29.6296 %
-Kappa statistic                          0.409 
-Mean absolute error                      0.3019
-Root mean squared error                  0.5494
-Relative absolute error                 62.32   %
-Root relative squared error            111.6845 %
-UnClassified Instances                   5                1.8519 %
+Correctly Classified Instances         179               66.2963 %
+Incorrectly Classified Instances        87               32.2222 %
+Kappa statistic                          0.3659
+Mean absolute error                      0.3271
+Root mean squared error                  0.5719
+Relative absolute error                 67.2893 %
+Root relative squared error            116.0735 %
+UnClassified Instances                   4                1.4815 %
 Total Number of Instances              270     

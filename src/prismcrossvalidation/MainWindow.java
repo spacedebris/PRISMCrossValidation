@@ -9,7 +9,7 @@ package prismcrossvalidation;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static prismcrossvalidation.Preview.previewTextArea;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -41,11 +41,15 @@ public class MainWindow extends javax.swing.JFrame {
         PrevievButton1 = new javax.swing.JToggleButton();
         pathChooseField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        arffSuportNotfLabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         prismButton = new javax.swing.JButton();
         resultsButton = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
+        foldsButton = new javax.swing.JButton();
+        foldsLabel = new javax.swing.JLabel();
+        defaultFoldLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         logArea = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
@@ -106,23 +110,33 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel2.setText("Remember: Algorithm works only on the basis of the nominal value of the attrubutes");
 
+        arffSuportNotfLabel.setText("Classifier supports only arff extensions");
+
         javax.swing.GroupLayout wybierzPlikPanelLayout = new javax.swing.GroupLayout(wybierzPlikPanel);
         wybierzPlikPanel.setLayout(wybierzPlikPanelLayout);
         wybierzPlikPanelLayout.setHorizontalGroup(
             wybierzPlikPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, wybierzPlikPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(wybierzPlikPanelLayout.createSequentialGroup()
+                .addGroup(wybierzPlikPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, wybierzPlikPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(wybierzPlikPanelLayout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(wybierzPlikPanelLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jLabel2)
+                .addGap(44, 44, 44)
+                .addComponent(arffSuportNotfLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         wybierzPlikPanelLayout.setVerticalGroup(
             wybierzPlikPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(wybierzPlikPanelLayout.createSequentialGroup()
-                .addGap(66, 66, 66)
+                .addGap(33, 33, 33)
+                .addComponent(arffSuportNotfLabel)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jLabel2)
@@ -142,6 +156,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         resultsButton.setText("Show results");
         resultsButton.setActionCommand("");
+        resultsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resultsButtonActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Save results");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -179,19 +198,48 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(29, 29, 29))
         );
 
+        foldsButton.setText("Enter amout of folds:");
+        foldsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                foldsButtonActionPerformed(evt);
+            }
+        });
+
+        foldsLabel.setBackground(new java.awt.Color(0, 153, 153));
+
+        defaultFoldLabel.setText("default: 10");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(foldsButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(foldsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(245, 245, 245)
+                .addComponent(defaultFoldLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
+                .addGap(15, 15, 15)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(foldsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(foldsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(1, 1, 1)
+                .addComponent(defaultFoldLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(44, Short.MAX_VALUE))
         );
@@ -202,7 +250,7 @@ public class MainWindow extends javax.swing.JFrame {
         logArea.setRows(5);
         jScrollPane1.setViewportView(logArea);
 
-        jLabel1.setText("log");
+        jLabel1.setText("log:");
 
         jMenu1.setText("File");
 
@@ -235,29 +283,22 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(classifierPane)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(4, 4, 4)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(classifierPane)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(19, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(classifierPane, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -274,29 +315,32 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_chooseButton1MouseClicked
 
     private void prismButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prismButtonActionPerformed
+        
         try {
             Classifier.crossValidationPRISM_DISCRET();
-        } catch (Exception ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println(ex);
-            logArea.append(getStringFromStackTrace.exceptionToString(ex));
+        } catch (Exception e) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, e);
+            System.out.println(e);
+            logArea.append(StringFromStackTrace.exceptionToString(e));
         }
     }//GEN-LAST:event_prismButtonActionPerformed
 
     private void chooseButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseButton1ActionPerformed
+        
         ChooseFile chooser = new ChooseFile();
         chooser.setVisible(true);       
         
     }//GEN-LAST:event_chooseButton1ActionPerformed
 
     private void PrevievButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrevievButton1ActionPerformed
+        
         Preview PrevieWindow = new Preview();
         PrevieWindow.setVisible(true);
         try {
             Preview.showData();
-        } catch (IOException ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-            logArea.append(getStringFromStackTrace.exceptionToString(ex));
+        } catch (IOException e) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, e);
+            logArea.append(StringFromStackTrace.exceptionToString(e));
         }
     }//GEN-LAST:event_PrevievButton1ActionPerformed
 
@@ -308,19 +352,42 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu2ActionPerformed
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        
         About description = new About();
         description.setVisible(true);
         System.out.println("about");
+        
     }//GEN-LAST:event_jMenu2MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
         try {
             WriteToFile.writeUsingOutputStream(Classifier.crossValidationPRISM_DISCRET());
-        } catch (Exception ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-            logArea.append(getStringFromStackTrace.exceptionToString(ex));
+        } catch (Exception e) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, e);
+            logArea.append(StringFromStackTrace.exceptionToString(e));
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void resultsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultsButtonActionPerformed
+    
+        //Result resultWindow = new Result();
+        //resultWindow.setVisible(true);
+    }//GEN-LAST:event_resultsButtonActionPerformed
+
+    private void foldsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foldsButtonActionPerformed
+       
+        String SfoldAmount;
+        SfoldAmount = JOptionPane.showInputDialog(null, "Give me amout of folds: ");
+        foldsLabel.setText(SfoldAmount);
+        MainWindow.IfoldAmount = 10;
+        try{
+            IfoldAmount= Integer.parseInt(SfoldAmount);
+            Classifier.fold = IfoldAmount;
+        }catch(NumberFormatException e){
+            logArea.append(StringFromStackTrace.exceptionToString(e));
+        }
+    }//GEN-LAST:event_foldsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -359,8 +426,12 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton PrevievButton1;
+    private javax.swing.JLabel arffSuportNotfLabel;
     private javax.swing.JButton chooseButton1;
     private javax.swing.JTabbedPane classifierPane;
+    private javax.swing.JLabel defaultFoldLabel;
+    public static javax.swing.JButton foldsButton;
+    public static javax.swing.JLabel foldsLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -378,4 +449,5 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JToggleButton resultsButton;
     private javax.swing.JPanel wybierzPlikPanel;
     // End of variables declaration//GEN-END:variables
+    public static int IfoldAmount = 10;
 }
