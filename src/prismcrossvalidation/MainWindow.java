@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static prismcrossvalidation.Preview.previewTextArea;
 
 /**
  *
@@ -53,6 +54,7 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         logArea = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
+        clearLog = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mExit = new javax.swing.JMenuItem();
@@ -252,6 +254,13 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel1.setText("log:");
 
+        clearLog.setText("clear");
+        clearLog.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clearLogMouseClicked(evt);
+            }
+        });
+
         jMenu1.setText("File");
 
         mExit.setText("Exit");
@@ -286,16 +295,20 @@ public class MainWindow extends javax.swing.JFrame {
             .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(classifierPane)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(classifierPane)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(clearLog)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(clearLog))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -363,16 +376,22 @@ public class MainWindow extends javax.swing.JFrame {
         
         try {
             WriteToFile.writeUsingOutputStream(Classifier.crossValidationPRISM_DISCRET());
-        } catch (Exception e) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, e);
-            logArea.append(StringFromStackTrace.exceptionToString(e));
+        } catch (Exception ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            logArea.append(StringFromStackTrace.exceptionToString(ex));
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void resultsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultsButtonActionPerformed
     
-        //Result resultWindow = new Result();
-        //resultWindow.setVisible(true);
+        Preview prev = new Preview();
+        prev.setVisible(true);
+        try {
+            previewTextArea.append(Classifier.crossValidationPRISM_DISCRET());
+        } catch (Exception ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            logArea.append(StringFromStackTrace.exceptionToString(ex));
+        }
     }//GEN-LAST:event_resultsButtonActionPerformed
 
     private void foldsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foldsButtonActionPerformed
@@ -388,6 +407,10 @@ public class MainWindow extends javax.swing.JFrame {
             logArea.append(StringFromStackTrace.exceptionToString(e));
         }
     }//GEN-LAST:event_foldsButtonActionPerformed
+
+    private void clearLogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearLogMouseClicked
+        logArea.setText(null);
+    }//GEN-LAST:event_clearLogMouseClicked
 
     /**
      * @param args the command line arguments
@@ -429,6 +452,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel arffSuportNotfLabel;
     private javax.swing.JButton chooseButton1;
     private javax.swing.JTabbedPane classifierPane;
+    private javax.swing.JLabel clearLog;
     private javax.swing.JLabel defaultFoldLabel;
     public static javax.swing.JButton foldsButton;
     public static javax.swing.JLabel foldsLabel;

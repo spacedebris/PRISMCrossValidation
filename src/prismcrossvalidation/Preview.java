@@ -8,6 +8,8 @@ package prismcrossvalidation;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import weka.core.Instances;
 
 /**
@@ -114,7 +116,7 @@ public class Preview extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Preview().setVisible(true);
+                //new Preview().setVisible(true);
                 
             }
         });

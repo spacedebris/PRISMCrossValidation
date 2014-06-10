@@ -43,6 +43,7 @@ public class Classifier {
 	eval.crossValidateModel(fClassifier, data, fold, new Random(1)); //CV dla 10 foldow
         
         System.out.println("amount of folds: "+fold);
+        MainWindow.logArea.append("Amount of folds: "+fold);
         
         System.out.println(eval.toSummaryString("Wyniki:", false));
         MainWindow.logArea.append(eval.toSummaryString("Wyniki:", false));
